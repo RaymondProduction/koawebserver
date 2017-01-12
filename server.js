@@ -2,10 +2,10 @@ var koa = require('koa');
 var app = koa();
 var fs = require('fs');
 var path = require('path');
-var port = process.argv[2];
+var port = parametr('--port');
 var buf;
 var str;
-var rootDir="/home/raymond/Документы/Raymond/My Work/Project/public";
+var rootDir= parametr('--directory');
 var staticContent = {'.html' : 'text/html; charset=utf-8',
                      '.css'  : 'text/css; charset=utf-8',
                      '.js'   : 'text/plain',
@@ -28,3 +28,14 @@ app.use(function *(next){
 
 if (port) {app.listen(Number(port));}
 else      {app.listen(8080);}
+
+
+function parametr(par){
+  var res;
+  process.argv.forEach(function(item, i, arr) {
+     if (par==item) {
+           res =  process.argv[i+1];
+     }
+  }); 
+  return res;
+}
