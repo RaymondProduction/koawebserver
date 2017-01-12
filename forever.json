@@ -1,5 +1,5 @@
 {
     "script": "server.js",
     "sourceDir": "/home/program/koawebserver/",
-    "args": ["8000"]
+    "args": ["--port","8000","--directory","/home/program/Tetris-Next"]
 }
