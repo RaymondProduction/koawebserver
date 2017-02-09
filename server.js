@@ -18,11 +18,12 @@ console.log('Start Web Server');
 app.use(function *(next){
   yield next;
   var url = this.url;
-  console.log('GET => ',url);
+  console.log('GET => ',url,'\tContent type: ',staticContent[path.extname(url)]);
   if (url=='/') {url='/index.html';}
   this.type = staticContent[path.extname(url)];
   buf = fs.readFileSync(rootDir+url);
-  str = buf.toString();
+ // str = buf.toString();
+  str = buf;
   this.body = str;
 });
 
