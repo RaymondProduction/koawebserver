@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^1.2.4"
+  },
+  "devDependencies": {
+    "ip": "^1.1.4"
   }
 }
